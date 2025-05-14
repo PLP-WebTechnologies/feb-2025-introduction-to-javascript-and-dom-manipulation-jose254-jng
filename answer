@@ -1,0 +1,74 @@
+INDEX.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript DOM Demo</title>
+  <style>
+    #dynamic-text {
+      color: blue;
+    }
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">Welcome to JavaScript DOM Manipulation</h1>
+  </header>
+
+  <main>
+    <section>
+      <p id="dynamic-text">This text will change dynamically.</p>
+      <button onclick="changeText()">Change Text</button>
+    </section>
+
+    <section>
+      <button onclick="toggleHighlight()">Toggle Highlight</button>
+    </section>
+
+    <section>
+      <button onclick="addElement()">Add Element</button>
+      <button onclick="removeElement()">Remove Element</button>
+      <div id="container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Your Name</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+script.js
+function changeText() {
+  const paragraph = document.getElementById('dynamic-text');
+  paragraph.textContent = 'The text has been updated using JavaScript!';
+}
+
+function toggleHighlight() {
+  const paragraph = document.getElementById('dynamic-text');
+  paragraph.classList.toggle('highlight');
+}
+
+function addElement() {
+  const container = document.getElementById('container');
+  const newElement = document.createElement('p');
+  newElement.textContent = 'A new paragraph was added!';
+  newElement.id = 'added-paragraph';
+  container.appendChild(newElement);
+}
+
+function removeElement() {
+  const existing = document.getElementById('added-paragraph');
+  if (existing) {
+    existing.remove();
+  }
+}
+
